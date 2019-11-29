@@ -107,7 +107,7 @@ class API {
      *
      * @param int $twitchUserId
      * @param int $channelId
-     * @param int $amount | amount of point won
+     * @param int $amount amount of point won
      * @return void
      */
     public function addPointsToUser($twitchUserId, $channelId, $amount){
@@ -156,6 +156,7 @@ class API {
 
     /**
      * Generates random number in range
+     * 
      * @return int
      */
     public function rollRandomNumber(){
@@ -165,7 +166,8 @@ class API {
 
     /**
      * Returns game result
-     * @param int $guess | Number from user
+     * 
+     * @param int $guess Number from user
      * @return string
      */
     public function compareNumbers($guess){
