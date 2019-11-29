@@ -14,6 +14,13 @@ class API {
         $this->conn = $db;
     }
 
+    /**
+     * Checks if user is already in database
+     *
+     * @param int $twitchUserId
+     * @param int $channelId
+     * @return boolean
+     */
     public function checkUserInDatabase($twitchUserId, $channelId){
         $query = "SELECT
                     twitchUser_id
@@ -38,6 +45,13 @@ class API {
         }
     }
 
+    /**
+     * Adds user to database, and sets default values (points)
+     *
+     * @param int $twitchUserId
+     * @param int $channelId
+     * @return void
+     */
     public function addUserToDatabase($twitchUserId, $channelId) {
         $query ="INSERT INTO
                         " . $this->table_name . "
@@ -61,6 +75,14 @@ class API {
         $stmt->execute();
     }
 
+    /**
+     * Subtract points from total amount of points for playing
+     *
+     * @param int $twitchUserId
+     * @param int $channelId
+     * @param int $amount
+     * @return void
+     */
     public function subtractEntryFee($twitchUserId, $channelId, $amount){
         $query = "UPDATE
                         " . $this->table_name . "
@@ -80,6 +102,14 @@ class API {
         $stmt->execute();
     }
 
+    /**
+     * Adds points to user
+     *
+     * @param int $twitchUserId
+     * @param int $channelId
+     * @param int $amount | amount of point won
+     * @return void
+     */
     public function addPointsToUser($twitchUserId, $channelId, $amount){
         $query = "UPDATE
                         " . $this->table_name . "
@@ -99,6 +129,13 @@ class API {
         $stmt->execute();
     }
 
+    /**
+     * Gets current number of points of user on channel
+     *
+     * @param int $twitchUserId
+     * @param int $channelId
+     * @return int
+     */
     public function userCurrentPoints($twitchUserId, $channelId){
         $query = "SELECT
                     points
@@ -117,11 +154,20 @@ class API {
         return $currentPoints;
     }
 
+    /**
+     * Generates random number in range
+     * @return int
+     */
     public function rollRandomNumber(){
         $randomNumber = floor(rand(1, 10));
         return $randomNumber;
     }
 
+    /**
+     * Returns game result
+     * @param int $guess | Number from user
+     * @return string
+     */
     public function compareNumbers($guess){
         if ($guess == $this->rollRandomNumber()){ // numbers match
             return $result = "won";
