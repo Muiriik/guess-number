@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Viewer Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <div id="app" class="full-height">
+
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col">
+                    <h2>Guess a number</h2>
+                    <form method="GET" id="guessedNumberForm">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="guessedNumber" name="guessedNumber" placeholder="Enter random number" title="Only numbers from 1-10">
+                            <div class="input-group-append">
+                                <button class="btn btn-dark" type="submit">Guess!</button>
+                            </div>
+                            <small id="guessedNumberHelp" class="form-text">
+                                    Please enter your guess in range from 1 to 10.
+                            </small>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="messages mt-4"></div>
+                </div>
+            </div>
+
+            <div class="overlay">
+                <div class="col">
+                    <div class="row align-items-center">
+                        <h3>Grant permissions <br> to play</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+    <script src="./js/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="./js/twitch-ext.min.js"></script>
+    <script src="./js/viewer.js" type="text/javascript"></script>
+    <script src="./js/core.js" type="text/javascript"></script>
+</body>
+
+</html>
